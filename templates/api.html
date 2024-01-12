@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PVS Transport</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+        }
+
+        header {
+            background-color: #0400ff;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+            text-align: center;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgb(25, 0, 253);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: hwb(226 0% 0% / 0.637);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .info-block {
+            width: 45%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        h2 {
+        color: #333; /* Цвет заголовка */
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>PVS Transport</h1>
+    </header>
+
+    <main>
+        <p style="text-align: center;">Beschreibung: Returns details on station for requested stationID.</p>
+        <form action="/api" method="post">
+            <label for="stationID">Enter Station ID:</label>
+            <input type="text" id="stationID" name="stationID" required>
+            <button type="submit">Get Station Information</button>
+        </form>
+        {{ if . }}
+            <section>
+                <h2>Station Information</h2>
+                <div class="info-block">
+                    <p>Station ID: {{ .StationID }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>Names: {{ .Names }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>Metropolis: {{ .Metropolis }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>Municipality Key: {{ .MunicipalityKey }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>Opening Hours: {{ .OpeningHours }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>Owner: {{ .Owner }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>Position: {{ .Position }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>Roofing: {{ .Roofing }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>State: {{ .State }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>Station Category: {{ .StationCategory }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>Available Local Services: {{ .AvailableLocalServices }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>Available Transports: {{ .AvailableTransports }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>Country Code: {{ .CountryCode }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>Transport Associations: {{ .TransportAssociations }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>Time Zone: {{ .TimeZone }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>Valid From: {{ .ValidFrom }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>Valid To: {{ .ValidTo }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>Address Street: {{ .Address.Street }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>Address House Number: {{ .Address.HouseNumber }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>Address Postal Code: {{ .Address.PostalCode }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>Address City: {{ .Address.City }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>Address State: {{ .Address.State }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>Address Country: {{ .Address.Country }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>Address Additional Information: {{ .Address.AdditionalInformation }}</p>
+                </div>
+            
+                <div class="info-block">
+                    <p>Address Website: {{ .Address.Website }}</p>
+                </div>
+            </section>
+        {{ else }}
+            <section>
+                <p>No information available</p>
+            </section>
+        {{ end }}
+    </main>
+
+    <footer>
+        &copy; 2024 PVS Transport. All rights reserved.
+    </footer>
+</body>
+
+</html>
+
